@@ -1,5 +1,4 @@
 import Phaser from "phaser";
-import spaceImage from "../assets/space.png";
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -8,12 +7,22 @@ class MainScene extends Phaser.Scene {
 
   preload(): void {
     // Load your game assets here
-    this.load.image("background", spaceImage);
   }
 
   create(): void {
     // Create your game objects and add them to the scene here
-    this.add.image(400, 300, "background").setOrigin(0.5);
+    const starsCount = 200;
+    const graphics = this.add.graphics();
+
+    for (let i = 0; i < starsCount; i++) {
+      const x = Math.random() * this.scale.width;
+      const y = Math.random() * this.scale.height;
+      const size = Math.random() * 3;
+      const color = 0xffffff;
+
+      graphics.fillStyle(color);
+      graphics.fillCircle(x, y, size);
+    }
   }
 
   update(): void {

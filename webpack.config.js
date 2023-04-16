@@ -23,10 +23,11 @@ module.exports = {
       {
         test: /\.(png|jpg|gif|svg)$/,
         use: {
-          loader: "file-loader",
+          loader: "url-loader",
           options: {
             name: "[path][name].[ext]",
             context: path.resolve(__dirname, "src"),
+            limit: 8192,
           },
         },
       },
