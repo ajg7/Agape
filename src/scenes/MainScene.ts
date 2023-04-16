@@ -1,17 +1,19 @@
-import Phaser from 'phaser';
+import Phaser from "phaser";
+import spaceImage from "../assets/space.png";
 
 class MainScene extends Phaser.Scene {
   constructor() {
-    super('MainScene');
+    super("MainScene");
   }
 
   preload(): void {
     // Load your game assets here
+    this.load.image("background", spaceImage);
   }
 
   create(): void {
     // Create your game objects and add them to the scene here
-    this.add.text(400, 300, 'Hello Phaser with React and TypeScript!', { fontSize: '32px', color: '#fff' }).setOrigin(0.5);
+    this.add.image(400, 300, "background").setOrigin(0.5);
   }
 
   update(): void {
